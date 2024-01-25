@@ -1,0 +1,12 @@
+
+import bpy
+
+# Get the selected objects
+selected_objects = bpy.context.selected_objects
+
+# Loop through the selected objects
+for obj in selected_objects:
+    # Loop through the object's modifiers
+    for mod in obj.modifiers:
+        # Apply the modifier
+        bpy.ops.object.modifier_apply(modifier=mod.name)
