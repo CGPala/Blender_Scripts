@@ -1,0 +1,17 @@
+import bpy
+
+# Get the selected objects
+selected_objects = bpy.context.selected_objects
+
+# Loop through each object
+for obj in selected_objects:
+    # Make sure the object is a mesh
+    if obj.type == 'MESH':
+        # Get the mesh data
+        mesh = obj.data
+        # Create a new UV map named "Baking"
+        uv_map = mesh.uv_layers.new(name="Baking")
+        # Set the UV map as active
+        mesh.uv_layers.active = uv_map
+        # Unwrap the mesh using the default settings
+        bpy.ops.uv.smart_project()
