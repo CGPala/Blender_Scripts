@@ -1,0 +1,15 @@
+import bpy
+
+def remove_materials_from_selected_objects():
+    # Get the selected objects
+    selected_objects = bpy.context.selected_objects
+
+    # Loop through selected objects
+    for obj in selected_objects:
+        # Check if the object has materials
+        if obj.data.materials:
+            # Clear all materials from the object
+            obj.data.materials.clear()
+
+# Call the function to remove materials from selected objects
+remove_materials_from_selected_objects()
